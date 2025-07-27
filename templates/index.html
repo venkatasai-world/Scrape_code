@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌐 CodeGod - Website Scraper</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f8ff;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            font-family: cursive;
+            color: #4b0082;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #888;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #00ffcc;
+            padding: 20px;
+            max-width: 90%;
+            margin: 30px auto;
+            overflow-x: auto;
+            text-align: left;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>💻 Sracp Website: Web HTML Scraper</h1>
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter Website URL" required>
+        <button type="submit">Scrape HTML</button>
+    </form>
+
+    {% if code %}
+        <h2>🧠 Prettified HTML Code</h2>
+        <pre id="code">{{ code }}</pre>
+        <button onclick="copyCode()">📋 Copy Code</button>
+    {% endif %}
+
+    <script>
+        function copyCode() {
+            const codeBlock = document.getElementById('code');
+            navigator.clipboard.writeText(codeBlock.innerText)
+                .then(() => alert("Copied to clipboard!"))
+                .catch(err => alert("Copy failed: " + err));
+        }
+    </script>
+</body>
+</html>
